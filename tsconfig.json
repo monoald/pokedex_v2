@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "ES6",
+    "moduleResolution": "Node",
+    "outDir": "./dist/",
+    "target": "ES5",
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+  },
+  "include": ["src"]
+}
