@@ -1,0 +1,27 @@
+$primary: #F6F0ED;
+$secondary: #1E1E1E;
+$cinnabar: #EF3E33;
+$silver: #CCCCCC;
+$font-xxl: 2.4rem;
+$space-unit: 10px;
+$space-unit-x2: $space-unit * 2;
+
+@mixin lightNeumorphism() {
+  border-radius: 20px;
+  background: #F6F0ED;
+  box-shadow:  5px 5px 10px #b9b4b2,
+              -5px -5px 10px #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html {
+  font-size: 62.5%;
+  font-family: 'Roboto', sans-serif;
+}
+body {
+  background-color: $primary;
+}

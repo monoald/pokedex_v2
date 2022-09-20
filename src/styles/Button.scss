@@ -1,0 +1,24 @@
+@use 'variables' as *;
+
+.Button-icon {
+  width: 26px;
+  height: 26px;
+  border: none;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .icon {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}
+
+.filter_icon {
+  background-image: url('../assets/icons/filter_icon.svg');
+}
+.menu_icon {
+  background-image: url('../assets/icons/menu_icon.svg');
+}

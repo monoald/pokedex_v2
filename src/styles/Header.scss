@@ -1,0 +1,29 @@
+@use 'variables' as *;
+
+.Header {
+  width: 90%;
+  height: 60px;
+  margin: $space-unit auto 0;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+
+  @include lightNeumorphism;
+
+  .Header__title {
+    grid-area: 1 / 2 / 2 / 3;
+    font-size: $font-xxl;
+    text-align: center;
+  }
+
+  .icons-container {
+    grid-area: 1 / 1 / 2 / 4;
+    width: 100%;
+    padding: 0 $space-unit-x2;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
