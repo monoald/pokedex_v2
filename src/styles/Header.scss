@@ -1,14 +1,15 @@
 @use 'variables' as *;
+@use 'headerFooterContainer' as *;
 
 .Header {
-  width: 90%;
-  height: 60px;
   margin: $space-unit auto 0;
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   grid-template-rows: 1fr;
   align-items: center;
+  color: $secondary;
 
+  @include container;
   @include lightNeumorphism;
 
   .Header__title {

@@ -1,0 +1,24 @@
+@use 'variables' as *;
+@use 'headerFooterContainer' as *;
+
+.Footer {
+  margin: 50px auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $secondary;
+  border-radius: 20px;
+  box-shadow: 5px -5px 10px #b9b4b2,
+              -5px 5px 10px #ffffff;
+
+  @include container;
+
+  .Footer__content {
+    @include font-m;
+  }
+  .Footer__url {
+    color: $secondary;
+    text-decoration: none;
+    font-weight: 500;
+  }
+}

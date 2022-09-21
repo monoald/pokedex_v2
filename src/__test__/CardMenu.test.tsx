@@ -17,7 +17,7 @@ describe('Test Card Primary component', () => {
   beforeEach(() => {
     component = render(
       <Router>
-        <CardMenu cardMenuContent={props} />
+        <CardMenu content={props} />
       </Router>,
     );
   });

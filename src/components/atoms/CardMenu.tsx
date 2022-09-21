@@ -4,15 +4,15 @@ import '../../styles/MenuCard.scss';
 import { CardMenuContent } from '../../types';
 
 interface Props {
-  cardMenuContent: CardMenuContent;
+  content: CardMenuContent;
 }
 
-const CardMenu = ({ cardMenuContent }: Props) => {
+const CardMenu = ({ content }: Props) => {
   return (
     <li className='container'>
-      <Link to={cardMenuContent.url} className='CardMenu card'>
-        <h2 className='CardMenu__title'>{cardMenuContent.title}</h2>
-        <span className={`${cardMenuContent.image} CardMenu__image`}></span>
+      <Link to={content.url} className='CardMenu card'>
+        <h2 className='CardMenu__title'>{content.title}</h2>
+        <span className={`${content.image} CardMenu__image`}></span>
       </Link>
     </li>
   );
