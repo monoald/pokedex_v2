@@ -219,5 +219,4 @@ $RECYCLE.BIN/
 
 dist/
 src/**/*.jsx
-tests/__coverage__/
-tests/**/*.jsx
+__test__/__coverage__/

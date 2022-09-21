@@ -13,8 +13,9 @@
 
   .Header__title {
     grid-area: 1 / 2 / 2 / 3;
-    font-size: $font-xxl;
     text-align: center;
+
+    @include font-xxl;
   }
 
   .icons-container {

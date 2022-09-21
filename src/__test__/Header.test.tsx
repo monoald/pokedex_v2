@@ -41,7 +41,7 @@ describe('Test Header', () => {
     const icon = button.firstChild;
 
     expect(icon).toBeInTheDocument();
-    expect(icon.className).toBe(props.icons[0].class);
+    expect(icon.className).toBe(`${props.icons[0].class} icon`);
   });
 
   test('should render 2 buttons with its icons', () => {
@@ -54,7 +54,7 @@ describe('Test Header', () => {
     expect(buttons.length).toBe(2);
     expect(firstButton).toBe(props.icons[0].id);
     expect(secondButton).toBe(props.icons[1].id);
-    expect(firstIcon).toBe(props.icons[0].class);
-    expect(secondIcon).toBe(props.icons[1].class);
+    expect(firstIcon).toBe(`${props.icons[0].class} icon`);
+    expect(secondIcon).toBe(`${props.icons[1].class} icon`);
   });
 });

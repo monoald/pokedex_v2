@@ -1,0 +1,17 @@
+@use 'variables' as *;
+
+.container {
+  width: 270px;
+  height: 140px;
+  margin: 0 auto;
+  list-style: none;
+
+  .card {
+    width: 100%;
+    height: 100%;
+    background-color: $secondary;
+    text-decoration: none;
+
+    @include lightNeumorphism;
+  }
+}

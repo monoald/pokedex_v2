@@ -3,7 +3,13 @@ export interface Icons {
   id: string;
 }
 
-interface HeaderContent {
+export interface HeaderContent {
   title: string;
   icons?: Icons[];
+}
+
+export interface CardMenuContent {
+  title: string;
+  image: string;
+  url: string;
 }

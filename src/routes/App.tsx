@@ -1,35 +1,20 @@
 import * as React from 'react';
-import Header from '../components/molecules/Header';
-
-interface Icons {
-  class: string;
-  id: string;
-}
-
-interface Props {
-  title: string;
-  icons?: Icons[];
-}
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from '../containers/Layout';
+import Home from '../pages/Home';
 
 const App = () => {
-  const props: Props = {
-    title: 'Pokemon',
-    icons: [
-      {
-        class: 'filter_icon',
-        id: 'filter',
-      },
-      {
-        class: 'menu_icon',
-        id: 'menu',
-      },
-    ],
-  };
-
   return (
-    <>
-      <Header content={props} />
-    </>
+    <BrowserRouter>
+      {/* <Layout>
+        <Routes>
+          <Route path='/' element={<Home />} />
+        </Routes>
+      </Layout> */}
+      <Routes>
+        <Route path='/' element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
