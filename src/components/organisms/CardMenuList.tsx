@@ -12,11 +12,13 @@ interface Props {
 
 const CardMenuList = ({ list }: Props) => {
   return (
-    <ul className='CardMenuList'>
-      {list.map((card) => (
-        <CardMenu content={card} key={card.url} />
-      ))}
-    </ul>
+    <nav>
+      <ul className='CardMenuList'>
+        {list.map((card) => (
+          <CardMenu content={card} key={card.url} />
+        ))}
+      </ul>
+    </nav>
   );
 };
 

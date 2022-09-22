@@ -38,7 +38,9 @@ const Home = () => {
   return (
     <div className='Home'>
       <Header content={content.header} />
-      <CardMenuList list={content.cardMenu} />
+      <main>
+        <CardMenuList list={content.cardMenu} />
+      </main>
       <Footer />
     </div>
   );

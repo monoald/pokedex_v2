@@ -10,7 +10,7 @@ interface Props {
 const Header = ({ content }: Props) => {
   return (
     <header className='Header'>
-      <p className='Header__title'>{content.title}</p>
+      <h1 className='Header__title'>{content.title}</h1>
 
       <div className='icons-container'>
         {content.icons?.map((icon) => (
