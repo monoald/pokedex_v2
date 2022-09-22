@@ -16,10 +16,3 @@
     @include lightNeumorphism;
   }
 }
-
-@media (min-width: $break-point) {
-  .container {
-    width: 405px;
-    height: 210px;
-  }
-}

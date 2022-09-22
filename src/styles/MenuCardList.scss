@@ -2,10 +2,9 @@
 
 .CardMenuList {
   width: 100%;
-  max-width: 1000px;
+  max-width: 620px;
   padding: $space-unit-x4 $space-unit-x2;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: $space-unit-x4;
 }

@@ -34,23 +34,3 @@
     background-image: url('../assets/images/card-menu-image-4.png');
   }
 }
-
-@media (min-width: $break-point) {
-  .CardMenu{
-    padding: 0 $space-unit-x4;
-
-    .CardMenu__title {
-      color: $primary;
-
-      @include font-l-desktop;
-    }
-    .CardMenu__image {
-      width: 120px;
-      height: 120px;
-      display: block;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-  }
-}
