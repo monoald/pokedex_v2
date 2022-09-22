@@ -1,39 +1,46 @@
 import React from 'react';
 
-import { HeaderContent } from '../types';
-import { CardMenuContent } from '../types';
+import { HomeContent } from '../types';
 
-import CardMenu from '../components/atoms/CardMenu';
 import Header from '../components/molecules/Header';
+import CardMenuList from '../components/organisms/CardMenuList';
 import Footer from '../components/atoms/Footer';
 
-const Home = () => {
-  const cardMenu: CardMenuContent = {
-    title: 'Pokemons',
-    image: 'image-1',
-    url: 'im an url',
-  };
+import '../styles/Home.scss';
 
-  const header: HeaderContent = {
-    title: 'Pokemon',
-    icons: [
+const Home = () => {
+  const content: HomeContent = {
+    header: { title: 'Pokedex' },
+    cardMenu: [
       {
-        class: 'filter_icon',
-        id: 'filter',
+        title: 'Pokemons',
+        image: 'image-1',
+        url: 'pokedex',
       },
       {
-        class: 'menu_icon',
-        id: 'menu',
+        title: 'Items',
+        image: 'image-2',
+        url: 'items',
+      },
+      {
+        title: 'Moves',
+        image: 'image-3',
+        url: 'moves',
+      },
+      {
+        title: 'Your Team',
+        image: 'image-4',
+        url: 'your-team',
       },
     ],
   };
 
   return (
-    <>
-      <Header content={header} />
-      <CardMenu content={cardMenu} />
+    <div className='Home'>
+      <Header content={content.header} />
+      <CardMenuList list={content.cardMenu} />
       <Footer />
-    </>
+    </div>
   );
 };
 

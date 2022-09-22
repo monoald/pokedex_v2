@@ -29,3 +29,8 @@
   }
 }
 
+@media (min-width: $break-point) {
+  .Header {
+    margin: $space-unit-x4 auto 0;
+  }
+}

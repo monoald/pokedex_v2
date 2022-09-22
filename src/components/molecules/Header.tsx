@@ -13,7 +13,7 @@ const Header = ({ content }: Props) => {
       <p className='Header__title'>{content.title}</p>
 
       <div className='icons-container'>
-        {content.icons.map((icon) => (
+        {content.icons?.map((icon) => (
           <Button key={icon.id} icon={icon} />
         ))}
       </div>

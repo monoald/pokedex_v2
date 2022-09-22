@@ -6,6 +6,9 @@ $space-unit: 10px;
 $space-unit-x2: $space-unit * 2;
 $space-unit-x3: $space-unit * 3;
 $space-unit-x4: $space-unit * 4;
+$space-unit-x5: $space-unit * 5;
+$space-unit-x6: $space-unit * 6;
+$break-point: 930px;
 
 @mixin font-s() {
   font-size: 1.6rem;
@@ -16,8 +19,31 @@ $space-unit-x4: $space-unit * 4;
   font-weight: 400;
 }
 @mixin font-l() {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 500;
+  letter-spacing: 0.5px;
+}
+@mixin font-xl() {
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+@mixin font-xxl() {
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+
+@mixin font-s() {
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+@mixin font-m() {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+@mixin font-l-desktop() {
+  font-size: 2.4rem;
+  font-weight: 500;
+  letter-spacing: 0.7px;
 }
 @mixin font-xl() {
   font-size: 2.4rem;
