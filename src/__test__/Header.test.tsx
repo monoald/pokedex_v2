@@ -1,8 +1,10 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { render } from '@testing-library/react';
-import Header from '../components/molecules/Header';
+import { fireEvent, prettyDOM, render } from '@testing-library/react';
+
 import { HeaderContent } from '../types';
+
+import Header from '../components/molecules/Header';
 
 describe('Test Header', () => {
   const props: HeaderContent = {
@@ -19,10 +21,14 @@ describe('Test Header', () => {
     ],
   };
 
-  let component;
+  let component = null;
 
   beforeEach(() => {
     component = render(<Header content={props} />);
+  });
+
+  afterEach(() => {
+    component = null;
   });
 
   test('should render title', () => {
@@ -56,5 +62,42 @@ describe('Test Header', () => {
     expect(secondButton).toBe(props.icons[1].id);
     expect(firstIcon).toBe(`${props.icons[0].class} icon`);
     expect(secondIcon).toBe(`${props.icons[1].class} icon`);
+  });
+});
+
+describe('Test header interactivity', () => {
+  const onClick = jest.fn();
+
+  const props: HeaderContent = {
+    title: 'Pokemon',
+    icons: [
+      {
+        class: 'filter_icon',
+        id: 'filter',
+        event: onClick,
+      },
+      {
+        class: 'menu_icon',
+        id: 'menu',
+      },
+    ],
+  };
+
+  let component = null;
+
+  beforeEach(() => {
+    component = render(<Header content={props} />);
+  });
+
+  afterEach(() => {
+    component = null;
+  });
+
+  test('should click once', () => {
+    const button = component.container.querySelector('button');
+
+    fireEvent.click(button);
+
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 });

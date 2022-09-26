@@ -27,15 +27,15 @@ describe('Test Card Primary component', () => {
   });
 
   test('should render card title with content', () => {
-    const title = component.container.querySelector('h2');
+    const title = component.container.querySelector('span');
 
     expect(title).toBeInTheDocument();
     component.getByText(props.title);
   });
 
   test('should render card icon', () => {
-    const span = component.container.querySelector('span');
-    const spanIcon = span.className;
+    const spans = component.container.querySelectorAll('span');
+    const spanIcon = spans[1].className;
 
     expect(spanIcon).toBe(`${props.image} CardMenu__image`);
   });

@@ -11,7 +11,7 @@ const CardMenu = ({ content }: Props) => {
   return (
     <li className='container'>
       <Link to={content.url} className='CardMenu card'>
-        <h2 className='CardMenu__title'>{content.title}</h2>
+        <span className='CardMenu__title'>{content.title}</span>
         <span className={`${content.image} CardMenu__image`}></span>
       </Link>
     </li>

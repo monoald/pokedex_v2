@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import useToggle from '../hooks/useToggle';
 
 import { HomeContent } from '../types';
 
@@ -9,6 +11,11 @@ import Footer from '../components/atoms/Footer';
 import '../styles/Home.scss';
 
 const Home = () => {
+  // const [toggle, setToggle] = useState<boolean>(false);
+  // const event = () => {
+  //   useToggle(setToggle, toggle);
+  // };
+
   const content: HomeContent = {
     header: { title: 'Pokedex' },
     cardMenu: [
