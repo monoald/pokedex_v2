@@ -3,14 +3,12 @@ import '@testing-library/jest-dom/extend-expect';
 import { render } from '@testing-library/react';
 import { MemoryRouter as Router } from 'react-router-dom';
 
-import { HomeContent } from '../types';
-
 import CardMenuList from '../components/organisms/CardMenuList';
 
 describe('test Card Menu List component', () => {
   let component;
 
-  const props: HomeContent = {
+  const props = {
     header: { title: 'Pokedex' },
     cardMenu: [
       {
@@ -39,7 +37,7 @@ describe('test Card Menu List component', () => {
   beforeEach(() => {
     component = render(
       <Router>
-        <CardMenuList list={props.cardMenu} />
+        <CardMenuList />
       </Router>,
     );
   });

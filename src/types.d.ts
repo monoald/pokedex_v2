@@ -12,7 +12,3 @@ export interface CardMenuContent {
   image: string;
   url: string;
 }
-export interface HomeContent {
-  header: HeaderContent;
-  cardMenu: CardMenuContent[];
-}

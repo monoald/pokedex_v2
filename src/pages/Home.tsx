@@ -1,52 +1,22 @@
-import React, { useState } from 'react';
-
-import useToggle from '../hooks/useToggle';
-
-import { HomeContent } from '../types';
+import React from 'react';
 
 import Header from '../components/molecules/Header';
 import CardMenuList from '../components/organisms/CardMenuList';
 import Footer from '../components/atoms/Footer';
 
 import '../styles/Home.scss';
+import { HeaderContent } from '../types';
 
 const Home = () => {
-  // const [toggle, setToggle] = useState<boolean>(false);
-  // const event = () => {
-  //   useToggle(setToggle, toggle);
-  // };
-
-  const content: HomeContent = {
-    header: { title: 'Pokedex' },
-    cardMenu: [
-      {
-        title: 'Pokemons',
-        image: 'image-1',
-        url: 'pokedex',
-      },
-      {
-        title: 'Items',
-        image: 'image-2',
-        url: 'items',
-      },
-      {
-        title: 'Moves',
-        image: 'image-3',
-        url: 'moves',
-      },
-      {
-        title: 'Your Team',
-        image: 'image-4',
-        url: 'your-team',
-      },
-    ],
+  const headerContent: HeaderContent = {
+    title: 'Pokedex',
   };
 
   return (
     <div className='Home'>
-      <Header content={content.header} />
+      <Header content={headerContent} />
       <main>
-        <CardMenuList list={content.cardMenu} />
+        <CardMenuList />
       </main>
       <Footer />
     </div>
