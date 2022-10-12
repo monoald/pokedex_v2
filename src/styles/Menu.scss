@@ -1,0 +1,11 @@
+@use 'variables' as *;
+
+.Menu {
+  width: 820px;
+  padding: $space-unit-x4 0;
+  margin: $space-unit-x3 auto;
+  display: flex;
+  justify-content: center;
+
+  @include lightNeumorphism;
+}

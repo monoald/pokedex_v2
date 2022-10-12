@@ -11,22 +11,22 @@ const CardMenuList = () => {
     {
       title: 'Pokemons',
       image: 'image-1',
-      url: 'pokedex',
+      url: '/pokedex',
     },
     {
       title: 'Items',
       image: 'image-2',
-      url: 'items',
+      url: '/items',
     },
     {
       title: 'Moves',
       image: 'image-3',
-      url: 'moves',
+      url: '/moves',
     },
     {
       title: 'Your Team',
       image: 'image-4',
-      url: 'your-team',
+      url: '/your-team',
     },
   ];
 
