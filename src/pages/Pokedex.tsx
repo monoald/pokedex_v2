@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 import { HeaderContent } from '../types';
 
-import Header from '../components/molecules/Header';
-
 import useToggle from '../hooks/useToggle';
+
+import Header from '../components/molecules/Header';
 import Menu from '../components/organisms/Menu';
 
 const Pokedex = () => {
