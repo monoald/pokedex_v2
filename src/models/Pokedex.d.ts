@@ -1,5 +1,4 @@
 import { Base, Name, Description } from './Common';
-import { PokemonModel } from './Pokemon';
 
 export interface PokedexModel {
   descriptions: Description[];
@@ -10,9 +9,7 @@ export interface PokedexModel {
   pokemon_entries: PokemonEntry[];
   region: Base | null;
   version_groups: Base[];
-  totalPages?: number;
-  pokemons?: PokemonModel[];
-  page?: number;
+  poke?: string[];
 }
 
 interface PokemonEntry {

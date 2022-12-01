@@ -10,4 +10,5 @@ export interface Context {
   state: State;
   getPokedex: (payload: string) => void;
   nextPage: (payload: string) => void;
+  getPokemonSpecifications: (payload: string) => void;
 }

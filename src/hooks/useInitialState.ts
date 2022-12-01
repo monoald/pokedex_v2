@@ -1,20 +1,14 @@
 import { useState } from 'react';
 
 import { Context, State } from '../models/Context';
-import { PokedexModel } from '../models/Pokedex';
 import { PokemonModel } from '../models/Pokemon';
 
-import getData from '../utils/getData';
-
-interface GetPageInput {
-  pokedex: PokedexModel;
-  newPage: number;
-}
-
-interface GetPageOutput {
-  page: PokemonModel[];
-  newPokemons: object;
-}
+import {
+  getAbilities,
+  getEvolutionChain,
+  getNewPage,
+  addPokedex,
+} from '../utils/stateMethods';
 
 const initialState = {
   pokedex: {},
@@ -26,81 +20,50 @@ const useInitialState = (): Context => {
 
   const getPokedex = (payload: string): void => {
     if (!state.pokedex[payload]) {
-      addPokedex(payload);
+      addPokedex(payload, state, setState);
     }
   };
 
-  const addPokedex = async (payload: string) => {
-    let pokedex = (await getData(`pokedex/${payload}`)) as PokedexModel;
+  const getPokemonSpecifications = async (payload) => {
+    const pokemon = state.pokemon[payload];
 
-    const totalPages = Math.floor(pokedex.pokemon_entries.length / 15);
+    if (!pokemon.completeSpecifications) {
+      const abilitiesInfo = await getAbilities(pokemon);
+      const evolutions = await getEvolutionChain(pokemon, state);
 
-    const { page, newPokemons } = await getNewPage({
-      pokedex,
-      newPage: 0,
-    });
+      const newData: PokemonModel = {
+        ...pokemon,
+        evolutions: evolutions,
+        abilities: abilitiesInfo,
+        completeSpecifications: true,
+      };
 
-    pokedex = {
-      ...pokedex,
-      totalPages: totalPages,
-      pokemons: page,
-      page: 0,
-    };
-
-    setState({
-      ...state,
-      pokedex: { ...state.pokedex, [payload]: pokedex },
-      pokemon: { ...state.pokemon, ...newPokemons },
-    });
-  };
-
-  const getNewPage = async ({
-    pokedex,
-    newPage,
-  }: GetPageInput): Promise<GetPageOutput> => {
-    const start = newPage * 15 + 0;
-    const end = newPage * 15 + 15;
-
-    const pokemons = pokedex.pokemon_entries.slice(start, end);
-
-    const page: PokemonModel[] = [];
-    const newPokemons = {};
-
-    for (const pokemon of pokemons) {
-      const pokemonName = pokemon.pokemon_species.name;
-
-      if (!state.pokemon[pokemonName]) {
-        const data = (await getData(
-          `pokemon-species/${pokemonName}`,
-        )) as PokemonModel;
-
-        newPokemons[pokemonName] = data;
-        page.push(data);
-      } else {
-        page.push(state.pokemon[pokemonName]);
-      }
+      setState({
+        ...state,
+        pokemon: {
+          ...state.pokemon,
+          [pokemon.name]: newData,
+        },
+      });
     }
-
-    return { page, newPokemons };
   };
 
   const nextPage = async (payload: string) => {
     const pokedex = state.pokedex[payload];
-    const nextPage = pokedex.page + 1;
 
-    const { page, newPokemons } = await getNewPage({
-      pokedex,
-      newPage: nextPage,
-    });
+    const { newPokemons, poke } = await getNewPage(pokedex, state);
+
+    const newData = {
+      ...pokedex,
+      poke: [...pokedex.poke, ...poke],
+    };
 
     setState({
       ...state,
       pokedex: {
         ...state.pokedex,
         [payload]: {
-          ...pokedex,
-          pokemons: [...pokedex.pokemons, ...page],
-          page: nextPage,
+          ...newData,
         },
       },
       pokemon: {
@@ -114,6 +77,7 @@ const useInitialState = (): Context => {
     state,
     getPokedex,
     nextPage,
+    getPokemonSpecifications,
   };
 };
 
