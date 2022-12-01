@@ -1,8 +1,8 @@
 import React from 'react';
 
-import CardMenuList from './CardMenuList';
+import CardMenuList from '../containers/CardMenuList';
 
-import '../../styles/Menu.scss';
+import '../styles/Menu.scss';
 
 const Menu = () => {
   return (

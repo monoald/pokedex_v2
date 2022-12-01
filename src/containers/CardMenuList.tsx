@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { CardMenuContent } from '../../types';
+import { CardMenuContent } from '../types';
 
-import CardMenu from '../atoms/CardMenu';
+import CardMenu from '../components/CardMenu';
 
-import '../../styles/MenuCardList.scss';
+import '../styles/MenuCardList.scss';
 
 const CardMenuList = () => {
   const list: CardMenuContent[] = [

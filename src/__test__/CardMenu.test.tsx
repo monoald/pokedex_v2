@@ -3,7 +3,7 @@ import '@testing-library/jest-dom/extend-expect';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter as Router } from 'react-router-dom';
 import { CardMenuContent } from '../types';
-import CardMenu from '../components/atoms/CardMenu';
+import CardMenu from '../components/CardMenu';
 
 describe('Test Card Primary component', () => {
   const props: CardMenuContent = {

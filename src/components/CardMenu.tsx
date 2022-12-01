@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../../styles/MenuCard.scss';
-import { CardMenuContent } from '../../types';
+import '../styles/MenuCard.scss';
+import { CardMenuContent } from '../types';
 
 interface Props {
   content: CardMenuContent;

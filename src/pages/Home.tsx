@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Header from '../components/molecules/Header';
-import CardMenuList from '../components/organisms/CardMenuList';
-import Footer from '../components/atoms/Footer';
+import Header from '../components/Header';
+import CardMenuList from '../containers/CardMenuList';
+import Footer from '../components/Footer';
 
 import '../styles/Home.scss';
 import { HeaderContent } from '../types';

@@ -4,7 +4,7 @@ import { fireEvent, render } from '@testing-library/react';
 
 import { HeaderContent } from '../types';
 
-import Header from '../components/molecules/Header';
+import Header from '../components/Header';
 
 describe('Test Header', () => {
   const props: HeaderContent = {

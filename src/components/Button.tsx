@@ -1,6 +1,6 @@
 import React from 'react';
-import { IconButton } from '../../types';
-import '../../styles/Button.scss';
+import { IconButton } from '../types';
+import '../styles/Button.scss';
 
 interface Props {
   icon: IconButton;

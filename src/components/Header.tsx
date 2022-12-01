@@ -1,7 +1,7 @@
 import React from 'react';
-import { HeaderContent } from '../../types';
-import Button from '../atoms/Button';
-import '../../styles/Header.scss';
+import { HeaderContent } from '../types';
+import Button from './Button';
+import '../styles/Header.scss';
 
 interface Props {
   content: HeaderContent;
