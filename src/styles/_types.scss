@@ -1,11 +1,5 @@
 @use 'variables' as *;
 
-.types-container {
-  // display: flex;
-  // width: 80%;
-  // justify-content: space-between;
-}
-
 .type {
   width: 30px;
   height: 30px;
@@ -18,14 +12,82 @@
   text-indent: -1000px;
 }
 
-.type--grass {
-  background-image: url('../assets/icons/grass_icon.svg');
+.type--normal {
+  background-image: url('../assets/icons/normal_icon.svg');
+}
+
+.type--fighting {
+  background-image: url('../assets/icons/fighting_icon.svg');
+}
+
+.type--flying {
+  background-image: url('../assets/icons/flying_icon.svg');
 }
 
 .type--poison {
   background-image: url('../assets/icons/poison_icon.svg');
 }
 
+.type--ground {
+  background-image: url('../assets/icons/ground_icon.svg');
+}
+
+.type--rock {
+  background-image: url('../assets/icons/rock_icon.svg');
+}
+
+.type--bug {
+  background-image: url('../assets/icons/bug_icon.svg');
+}
+
+.type--ghost {
+  background-image: url('../assets/icons/ghost_icon.svg');
+}
+
+.type--steel {
+  background-image: url('../assets/icons/steel_icon.svg');
+}
+
 .type--fire {
   background-image: url('../assets/icons/fire_icon.svg');
 }
+
+.type--water {
+  background-image: url('../assets/icons/water_icon.svg');
+}
+
+.type--grass {
+  background-image: url('../assets/icons/grass_icon.svg');
+}
+
+.type--electric {
+  background-image: url('../assets/icons/electric_icon.svg');
+}
+
+.type--psychic {
+  background-image: url('../assets/icons/psychic_icon.svg');
+}
+
+.type--ice {
+  background-image: url('../assets/icons/ice_icon.svg');
+}
+
+.type--dragon {
+  background-image: url('../assets/icons/dragon_icon.svg');
+}
+
+.type--dark {
+  background-image: url('../assets/icons/dark_icon.svg');
+}
+
+.type--fairy {
+  background-image: url('../assets/icons/fairy_icon.svg');
+}
+
+// .type--unkown {
+//   background-image: url('../assets/icons/unkown_icon.svg');
+// }
+
+// .type--shadow {
+//   background-image: url('../assets/icons/shadow_icon.svg');
+// }

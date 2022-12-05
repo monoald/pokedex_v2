@@ -1,9 +1,10 @@
 @use 'variables' as *;
 
-.CardMenuList {
+.Pokemon-Card-List {
   width: 100%;
-  max-width: 680px;
-  padding: $space-unit-x4 $space-unit-x2;
+  max-width: 1220px;
+  padding: $space-unit-x4;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   gap: $space-unit-x4;
