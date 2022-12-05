@@ -1,0 +1,31 @@
+@use 'variables' as *;
+
+.types-container {
+  // display: flex;
+  // width: 80%;
+  // justify-content: space-between;
+}
+
+.type {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  margin: 0 $space-unit;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  list-style: none;
+  text-indent: -1000px;
+}
+
+.type--grass {
+  background-image: url('../assets/icons/grass_icon.svg');
+}
+
+.type--poison {
+  background-image: url('../assets/icons/poison_icon.svg');
+}
+
+.type--fire {
+  background-image: url('../assets/icons/fire_icon.svg');
+}

@@ -1,0 +1,51 @@
+@use 'variables' as *;
+@use 'primaryCard' as *;
+@use 'types' as *;
+
+.Pokemon-Card {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+  "text image";
+
+  .Pokemon-Card__left {
+    grid-area: text;
+    padding: $space-unit-x2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: $primary;
+
+    .Pokemon-Card__number {
+      width: 100%;
+      letter-spacing: 0.9px;
+
+      @include font-m;
+    }
+
+    .Pokemon-Card__name {
+      @include font-l;
+      text-transform: capitalize;
+    }
+  }
+
+  .Pokemon-Card__right {
+    grid-area: image;
+    position: relative;
+
+    .Pokemon-Card__img-container {
+      width: 150px;
+      height: 150px;
+      position: absolute;
+      right: -40%;
+
+      .Pokemon-Card__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
