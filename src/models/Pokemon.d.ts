@@ -79,7 +79,7 @@ export interface PokemonModel {
   species: PokemonSpecies;
   sprites?: Sprites;
   stats: Stat[];
-  types: Type[];
+  types: Type[] | string[];
   weight: number;
   image: string;
   completeSpecifications: boolean;

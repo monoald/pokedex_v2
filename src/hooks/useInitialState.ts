@@ -13,6 +13,7 @@ import {
 const initialState = {
   pokedex: {},
   pokemon: {},
+  currentPokedex: '2',
 };
 
 const useInitialState = (): Context => {
@@ -48,6 +49,13 @@ const useInitialState = (): Context => {
     }
   };
 
+  const setPokedex = (payload: string) => {
+    setState({
+      ...state,
+      currentPokedex: payload,
+    });
+  };
+
   const nextPage = async (payload: string) => {
     const pokedex = state.pokedex[payload];
 
@@ -76,8 +84,9 @@ const useInitialState = (): Context => {
   return {
     state,
     getPokedex,
-    nextPage,
     getPokemonSpecifications,
+    setPokedex,
+    nextPage,
   };
 };
 

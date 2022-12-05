@@ -1,3 +1,5 @@
+import { PokemonModel } from './models/Pokemon';
+
 export interface IconButton {
   class: string;
   id: string;
@@ -11,4 +13,9 @@ export interface CardMenuContent {
   title: string;
   image: string;
   url: string;
+}
+
+export interface PokemonCardContent {
+  pokemon: PokemonModel;
+  entryNumber: string;
 }
