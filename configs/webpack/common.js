@@ -7,6 +7,11 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
+  output: {
+    filename: 'js/bundle.[contenthash].min.js',
+    path: resolve(__dirname, '../../dist'),
+    publicPath: '/',
+  },
   context: resolve(__dirname, '../../src'),
   module: {
     rules: [

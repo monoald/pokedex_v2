@@ -15,6 +15,7 @@
   .Header__title {
     grid-area: 1 / 2 / 2 / 3;
     text-align: center;
+    text-transform: capitalize;
 
     @include font-xxl;
   }

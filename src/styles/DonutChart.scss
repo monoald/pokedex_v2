@@ -1,0 +1,52 @@
+@use 'variables' as *;
+
+.DonutChart {
+  text-align: center;
+  width: 90px;
+
+  .chart {
+    position: relative;
+    width: 90px;
+    height: 90px;
+
+    .donut {
+      transform: rotate(180deg);
+    }
+    .number {
+      position: absolute;
+      top: calc(calc(90px - 38px) / 2);
+      left: calc(calc(90px - 80px) / 2);
+      width: 80px;
+      height: 38px;
+      padding: 5px;
+
+      @include font-xl;
+    }
+    .number--HP {
+      color: $hp;
+    }
+    .number--attack {
+      color: $attack;
+    }
+    .number--defense {
+      color: $defense;
+    }
+    .number--special-attack {
+      color: $special-attack;
+    }
+    .number--special-defense {
+      color: $special-defense;
+    }
+    .number--speed {
+      color: $speed;
+    }
+  }
+
+  .name {
+    margin: $space-unit-x2 0;
+    text-transform: capitalize;
+
+    @include font-l;
+  }
+
+}

@@ -17,5 +17,5 @@ export interface CardMenuContent {
 
 export interface PokemonCardContent {
   pokemon: PokemonModel;
-  entryNumber: string;
+  entryNumber: number;
 }

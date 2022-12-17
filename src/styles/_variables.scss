@@ -2,6 +2,13 @@ $primary: #F6F0ED;
 $secondary: #1E1E1E;
 $cinnabar: #EF3E33;
 $silver: #CCCCCC;
+$hp: #14CC60;
+$speed: #E4C811;
+$attack: #EF3E33;
+$defense: #004E98;
+$special-attack: #C589E8;
+$special-defense: #2589BD;
+$capture-rate: #09BC8A;
 $space-unit: 10px;
 $space-unit-x2: $space-unit * 2;
 $space-unit-x3: $space-unit * 3;
@@ -11,7 +18,7 @@ $space-unit-x6: $space-unit * 6;
 $break-point: 930px;
 
 @mixin font-s() {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 300;
 }
 @mixin font-m() {
@@ -19,7 +26,7 @@ $break-point: 930px;
   font-weight: 400;
 }
 @mixin font-l() {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   font-weight: 500;
   letter-spacing: 0.5px;
 }
@@ -32,27 +39,27 @@ $break-point: 930px;
   font-weight: 700;
 }
 
-@mixin font-s() {
-  font-size: 1.6rem;
-  font-weight: 300;
-}
-@mixin font-m() {
-  font-size: 1.6rem;
-  font-weight: 400;
-}
-@mixin font-l-desktop() {
-  font-size: 2.4rem;
-  font-weight: 500;
-  letter-spacing: 0.7px;
-}
-@mixin font-xl() {
-  font-size: 2.4rem;
-  font-weight: 500;
-}
-@mixin font-xxl() {
-  font-size: 2.8rem;
-  font-weight: 700;
-}
+// @mixin font-s() {
+//   font-size: 1.6rem;
+//   font-weight: 300;
+// }
+// @mixin font-m() {
+//   font-size: 1.6rem;
+//   font-weight: 400;
+// }
+// @mixin font-l-desktop() {
+//   font-size: 2.4rem;
+//   font-weight: 500;
+//   letter-spacing: 0.7px;
+// }
+// @mixin font-xl() {
+//   font-size: 2.4rem;
+//   font-weight: 500;
+// }
+// @mixin font-xxl() {
+//   font-size: 2.8rem;
+//   font-weight: 700;
+// }
 
 @mixin lightNeumorphism() {
   border-radius: 20px;

@@ -1,23 +1,17 @@
 import useToggle from '../hooks/useToggle';
 
+import { stateMock, setStateMock } from '../__mocks__/setToggleMock';
+
 describe('Test useToggle hook', () => {
-  let myState = false;
-
-  const set: React.Dispatch<React.SetStateAction<boolean>> = (
-    state: boolean,
-  ) => {
-    myState = state;
-  };
-
   test('should return true', () => {
-    useToggle(set, myState);
+    useToggle(setStateMock, stateMock);
 
-    expect(myState).toBe(true);
+    expect(stateMock).toBe(true);
   });
 
   test('should return false', () => {
-    useToggle(set, myState);
+    useToggle(setStateMock, stateMock);
 
-    expect(myState).toBe(false);
+    expect(stateMock).toBe(false);
   });
 });

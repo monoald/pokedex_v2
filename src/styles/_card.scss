@@ -1,0 +1,16 @@
+@use 'variables' as *;
+
+.name {
+  @include font-l;
+  text-transform: capitalize;
+}
+.img-container {
+  width: 150px;
+  height: 150px;
+
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

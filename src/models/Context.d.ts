@@ -1,10 +1,18 @@
 import { PokedexModel } from '../models/Pokedex';
-import { PokemonModel } from '../models/Pokemon';
+import { Evolutions, PokemonModel } from '../models/Pokemon';
 
 export interface State {
-  pokedex: PokedexModel | object;
-  pokemon: PokemonModel | object;
+  pokedex: Pokedex;
+  pokemon: Pokemon;
   currentPokedex: string;
+}
+
+interface Pokemon {
+  [key: string]: PokemonModel;
+}
+
+interface Pokedex {
+  [key: string]: PokedexModel;
 }
 
 export interface Context {
@@ -13,4 +21,5 @@ export interface Context {
   getPokemonSpecifications: (payload: string) => void;
   setPokedex: (payload: string) => void;
   nextPage: (payload: string) => void;
+  getPoke: (payload: string | Evolutions[]) => void;
 }

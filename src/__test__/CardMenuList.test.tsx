@@ -3,36 +3,12 @@ import '@testing-library/jest-dom/extend-expect';
 import { render } from '@testing-library/react';
 import { MemoryRouter as Router } from 'react-router-dom';
 
+import CardListMock from '../__mocks__/MenuCardListMock';
+
 import CardMenuList from '../containers/CardMenuList';
 
 describe('test Card Menu List component', () => {
   let component;
-
-  const props = {
-    header: { title: 'Pokedex' },
-    cardMenu: [
-      {
-        title: 'Pokemons',
-        image: 'image-1',
-        url: 'pokedex',
-      },
-      {
-        title: 'Items',
-        image: 'image-2',
-        url: 'items',
-      },
-      {
-        title: 'Moves',
-        image: 'image-3',
-        url: 'moves',
-      },
-      {
-        title: 'Your Team',
-        image: 'image-4',
-        url: 'your-team',
-      },
-    ],
-  };
 
   beforeEach(() => {
     component = render(
@@ -51,11 +27,11 @@ describe('test Card Menu List component', () => {
     const cardImage = card.lastChild;
 
     expect(card).toBeInTheDocument();
-    component.getByText(props.cardMenu[0].title);
+    component.getByText(CardListMock.cardMenu[0].title);
     expect(cardImage.className).toBe(
-      `${props.cardMenu[0].image} CardMenu__image`,
+      `${CardListMock.cardMenu[0].image} CardMenu__image`,
     );
-    expect(card).toHaveAttribute('href', `/${props.cardMenu[0].url}`);
+    expect(card).toHaveAttribute('href', `/${CardListMock.cardMenu[0].url}`);
   });
 
   test('should render many cards', () => {
@@ -63,14 +39,18 @@ describe('test Card Menu List component', () => {
     const lastCard = cards[cards.length - 1];
     const lastCardImage = lastCard.lastChild;
 
-    expect(cards.length).toBe(props.cardMenu.length);
-    component.getByText(props.cardMenu[props.cardMenu.length - 1].title);
+    expect(cards.length).toBe(CardListMock.cardMenu.length);
+    component.getByText(
+      CardListMock.cardMenu[CardListMock.cardMenu.length - 1].title,
+    );
     expect(lastCardImage.className).toBe(
-      `${props.cardMenu[props.cardMenu.length - 1].image} CardMenu__image`,
+      `${
+        CardListMock.cardMenu[CardListMock.cardMenu.length - 1].image
+      } CardMenu__image`,
     );
     expect(lastCard).toHaveAttribute(
       'href',
-      `/${props.cardMenu[props.cardMenu.length - 1].url}`,
+      `/${CardListMock.cardMenu[CardListMock.cardMenu.length - 1].url}`,
     );
   });
 });

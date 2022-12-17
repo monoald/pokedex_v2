@@ -77,6 +77,12 @@
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
-    "axios": "^1.1.2"
+    "@testing-library/react-hooks": "^8.0.1",
+    "axios": "^1.1.2",
+    "chart.js": "^4.0.1",
+    "isomorphic-fetch": "^3.0.0",
+    "jest-fetch-mock": "^3.0.3",
+    "react-chartjs-2": "^5.0.1",
+    "react-test-renderer": "^18.2.0"
   }
 }
