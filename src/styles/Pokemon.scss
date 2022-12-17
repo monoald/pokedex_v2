@@ -1,0 +1,217 @@
+@use 'variables' as *;
+@use 'types' as *;
+
+.Pokemon {
+  max-width: 860px;
+  padding: $space-unit-x4 0;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-template-rows: 170px 250px 480px 300px;
+  grid-template-areas:
+  "photo description"
+  "photo info"
+  "stats capture"
+  "evolve evolve";
+
+  .graphic-card {
+    grid-area: photo;
+    position: relative;
+    width: 380px;
+    height: 420px;
+    padding: $space-unit-x2 $space-unit-x3;
+    display: flex;
+    flex-direction: column;
+    background-image: url('../assets/images/background-day.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include lightNeumorphism;
+
+    .number {
+      width: 70px;
+      padding: 4px 0;
+      border: 2px solid $primary;
+      border-radius: 12px;
+      margin: 0 0 0 auto;
+      text-align: center;
+      color: $primary;
+      background-color: rgba($color: #000000, $alpha: 0.4);
+
+      @include font-l;
+    }
+    .types-container {
+      margin: $space-unit-x2 auto $space-unit-x3;
+    }
+    .image-container {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto;
+
+      .img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .description-card {
+    grid-area: description;
+    height: fit-content;
+    margin-left: auto;
+  }
+  .description-card, .info-card, .stats-card, .capture-rate-card {
+    width: 340px;
+    padding: $space-unit-x2 $space-unit-x4;
+    text-align: center;
+
+    @include lightNeumorphism;
+
+    .title {
+      width: fit-content;
+      margin: 0 auto;
+
+      @include font-l;
+      font-weight: 900;
+      margin-bottom: $space-unit-x2;
+    }
+  }
+
+  .info-card {
+    grid-area: info;
+    margin-left: auto;
+    height: fit-content;
+    .content {
+      .info-section {
+        display: flex;
+        justify-content: space-around;
+      }
+      .abilities-section {
+        margin-top: $space-unit-x3;
+
+        .abilities {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-evenly;
+          row-gap: $space-unit;
+        }
+        .subtitle {
+          margin: 0 auto $space-unit-x2;
+        }
+        .ability {
+          position: relative;
+          display: flex;
+          align-items: center;
+
+          @include font-s;
+
+          .description {
+            display: none;
+          }
+          .icon:hover + .description {
+            position: absolute;
+            right: -10%;
+            bottom: 180%;
+            width: 120px;
+            display: block;
+            padding: $space-unit;
+            border-radius: 12px;
+            background-color: $secondary;
+            color: $primary;
+            box-shadow: -2px 4px 4px 2px rgba($color: #000000, $alpha: 0.4);
+            z-index: 1;
+          }
+          .description::before {
+            position: absolute;
+            right: 18px;
+            bottom: -15px;
+            content: "";
+            width: 0px;
+            height: 0px;
+            border-right: 20px solid $secondary;
+            border-left: 12px solid transparent;
+            border-top: 6px solid $secondary;
+            border-bottom: 20px solid transparent;
+            z-index: 0;
+          }
+        }
+        .icon {
+          width: 20px;
+          height: 20px;
+          margin-left: $space-unit;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-image: url('../assets/icons/circle-question.svg');
+        }
+      }
+
+      .subtitle {
+        width: fit-content;
+        @include font-m;
+      }
+      .value {
+        margin-top: $space-unit;
+      }
+    }
+  }
+
+  .stats-card {
+    grid-area: stats;
+    width: 500px;
+    height: 390px;
+    margin: auto;
+
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      column-gap: 60px;
+      row-gap: 10px
+    }
+  }
+
+  .capture-rate-card {
+    grid-area: capture;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+
+    .content {
+      position: relative;
+      width: 150px;
+
+      .donut {
+        transform: rotate(180deg);
+      }
+      .number {
+        position: absolute;
+        top: calc(calc(150px - 33px) / 2);
+        left: calc(calc(150px - 120px) / 2);
+        width: 120px;
+        color: $capture-rate;
+
+        @include font-xxl;
+        font-size: 3.2rem;
+      }
+    }
+  }
+
+  .evolutions {
+    grid-area: evolve;
+    margin: auto;
+    width: 100%;
+    .content {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 20px;
+      row-gap: 40px
+    }
+  }
+
+  .value {
+    @include font-s;
+  }
+}

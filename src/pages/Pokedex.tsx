@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import { HeaderContent } from '../types';
 
+import AppContext from '../context/AppContext';
+
 import useToggle from '../hooks/useToggle';
 
-import Header from '../components/molecules/Header';
-import Menu from '../components/organisms/Menu';
+import Header from '../components/Header';
+import Menu from '../components/Menu';
+import PokemonCard from '../components/PokemonCard';
+import PokemonCardList from '../containers/PokemonCardList';
 
 const Pokedex = () => {
   const [toggleFilter, setToggleFilter] = useState<boolean>(false);
@@ -35,10 +39,52 @@ const Pokedex = () => {
     ],
   };
 
+  const {
+    getPokedex,
+    state: { pokedex, pokemon, currentPokedex },
+    getPokemonSpecifications,
+    nextPage,
+  } = useContext(AppContext);
+
+  // const [currentPokedex, setCurrentPokedex] = useState('2');
+
+  useEffect(() => {
+    getPokedex(currentPokedex);
+  }, []);
+
+  console.log(pokedex);
+  console.log(pokemon);
+
   return (
     <>
       <Header content={content} />
-      <main>{toggleMenu && <Menu />}</main>
+      <main>
+        {toggleMenu && <Menu menuToggle={menuEvent} />}
+        <button
+          onClick={() =>
+            getPokemonSpecifications(pokedex[currentPokedex]?.poke[0])
+          }
+        >
+          hola
+        </button>
+        <button
+          onClick={() => nextPage(currentPokedex)}
+          disabled={
+            pokedex[currentPokedex]?.pokemon_entries.length === 0 ? true : false
+          }
+        >
+          Next
+        </button>
+        <PokemonCardList>
+          {pokedex[currentPokedex]?.poke?.map((poke, index) => (
+            <PokemonCard
+              key={poke.name}
+              pokemon={pokemon[poke]}
+              entryNumber={index}
+            />
+          ))}
+        </PokemonCardList>
+      </main>
     </>
   );
 };

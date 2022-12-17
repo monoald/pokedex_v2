@@ -1,32 +1,38 @@
 import { useState } from 'react';
 
 import { Context, State } from '../models/Context';
-import { PokemonModel } from '../models/Pokemon';
+import { Evolutions, PokemonModel } from '../models/Pokemon';
 
 import {
   getAbilities,
   getEvolutionChain,
   getNewPage,
   addPokedex,
+  getPokemon,
 } from '../utils/stateMethods';
 
 const initialState = {
   pokedex: {},
   pokemon: {},
-  currentPokedex: '2',
-};
+  currentPokedex: 'kanto',
+} as State;
 
 const useInitialState = (): Context => {
   const [state, setState] = useState<State>(initialState);
 
   const getPokedex = (payload: string): void => {
     if (!state.pokedex[payload]) {
+      console.log('chau');
+
       addPokedex(payload, state, setState);
     }
   };
 
-  const getPokemonSpecifications = async (payload) => {
-    const pokemon = state.pokemon[payload];
+  const getPokemonSpecifications = async (
+    pokemonName: string,
+    pokemonObject?: PokemonModel,
+  ) => {
+    const pokemon = state.pokemon[pokemonName] || pokemonObject;
 
     if (!pokemon.completeSpecifications) {
       const abilitiesInfo = await getAbilities(pokemon);
@@ -39,13 +45,17 @@ const useInitialState = (): Context => {
         completeSpecifications: true,
       };
 
-      setState({
-        ...state,
-        pokemon: {
-          ...state.pokemon,
-          [pokemon.name]: newData,
-        },
-      });
+      if (pokemonObject) {
+        return newData;
+      } else {
+        setState({
+          ...state,
+          pokemon: {
+            ...state.pokemon,
+            [pokemon.name]: newData,
+          },
+        });
+      }
     }
   };
 
@@ -81,12 +91,43 @@ const useInitialState = (): Context => {
     });
   };
 
+  const getPoke = async (payload: string | Evolutions[]) => {
+    if (typeof payload === 'string') {
+      const data = await getPokemon(payload);
+      const normalizedData = await getPokemonSpecifications(payload, data);
+
+      setState({
+        ...state,
+        pokemon: { ...state.pokemon, [payload]: normalizedData },
+      });
+    } else {
+      const pokemons = {};
+
+      for (const pokemon in payload) {
+        const name = payload[pokemon].name;
+
+        if (state.pokemon[name]) {
+          continue;
+        }
+
+        const data = await getPokemon(name);
+        pokemons[name] = data;
+      }
+
+      setState({
+        ...state,
+        pokemon: { ...state.pokemon, ...pokemons },
+      });
+    }
+  };
+
   return {
     state,
     getPokedex,
     getPokemonSpecifications,
     setPokedex,
     nextPage,
+    getPoke,
   };
 };
 
