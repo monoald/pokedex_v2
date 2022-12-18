@@ -22,8 +22,6 @@ const useInitialState = (): Context => {
 
   const getPokedex = (payload: string): void => {
     if (!state.pokedex[payload]) {
-      console.log('chau');
-
       addPokedex(payload, state, setState);
     }
   };

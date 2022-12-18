@@ -5,9 +5,23 @@ const AppContext = createContext<Context>({
   state: {
     pokedex: {},
     pokemon: {},
+    currentPokedex: '',
   },
-  getPokedex: () => console.log('Hi'),
-  nextPage: () => console.log('Hi'),
+  getPokedex: () => {
+    return;
+  },
+  getPokemonSpecifications: () => {
+    return;
+  },
+  setPokedex: () => {
+    return;
+  },
+  nextPage: () => {
+    return;
+  },
+  getPoke: () => {
+    return;
+  },
 });
 
 export default AppContext;

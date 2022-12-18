@@ -42,43 +42,21 @@ const Pokedex = () => {
   const {
     getPokedex,
     state: { pokedex, pokemon, currentPokedex },
-    getPokemonSpecifications,
-    nextPage,
   } = useContext(AppContext);
-
-  // const [currentPokedex, setCurrentPokedex] = useState('2');
 
   useEffect(() => {
     getPokedex(currentPokedex);
   }, []);
-
-  console.log(pokedex);
-  console.log(pokemon);
 
   return (
     <>
       <Header content={content} />
       <main>
         {toggleMenu && <Menu menuToggle={menuEvent} />}
-        <button
-          onClick={() =>
-            getPokemonSpecifications(pokedex[currentPokedex]?.poke[0])
-          }
-        >
-          hola
-        </button>
-        <button
-          onClick={() => nextPage(currentPokedex)}
-          disabled={
-            pokedex[currentPokedex]?.pokemon_entries.length === 0 ? true : false
-          }
-        >
-          Next
-        </button>
         <PokemonCardList>
           {pokedex[currentPokedex]?.poke?.map((poke, index) => (
             <PokemonCard
-              key={poke.name}
+              key={poke}
               pokemon={pokemon[poke]}
               entryNumber={index}
             />

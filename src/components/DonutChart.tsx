@@ -9,7 +9,6 @@ interface Props {
   stat: Stat;
 }
 const DonutChart = ({ stat }: Props) => {
-  console.log(stat);
   const [chartData] = useState({
     labels: [stat.name, 'total'],
     datasets: [
