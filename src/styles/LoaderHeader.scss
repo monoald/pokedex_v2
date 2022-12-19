@@ -1,0 +1,15 @@
+@use 'headerFooterContainer' as *;
+@use 'variables' as *;
+
+.LoaderHeader {
+  margin: $space-unit auto 0;
+
+  @include container;
+  @include lightNeumorphism;
+}
+
+@media (min-width: $break-point) {
+  .LoaderHeader {
+    margin: $space-unit-x4 auto 0;
+  }
+}

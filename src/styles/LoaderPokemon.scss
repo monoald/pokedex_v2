@@ -1,0 +1,53 @@
+@use 'variables' as *;
+
+.graphicLoader, .descriptionLoader, .infoLoader, .statsLoader, .capture-rateLoader {
+  background-color: #B7B7B7;
+  filter: opacity(1);
+  -moz-transition:all 0.5s ease-in-out;
+  -webkit-transition:all 0.5s ease-in-out;
+  -o-transition:all 0.5s ease-in-out;
+  -ms-transition:all 0.5s ease-in-out;
+  transition:all 0.5s ease-in-out;
+  -moz-animation:blink normal 1.5s infinite ease-in-out;
+  -webkit-animation:blink normal 1.5s infinite ease-in-out;
+  -ms-animation:blink normal 1.5s infinite ease-in-out;
+  animation:blink normal 1.5s infinite ease-in-out;
+
+  @include lightNeumorphism;
+}
+
+.graphicLoader {
+  grid-area: photo;
+  width: 380px;
+  height: 420px;
+}
+.descriptionLoader {
+  grid-area: description;
+  width: 340px;
+  height: 132px;
+  margin-left: auto;
+}
+.infoLoader {
+  grid-area: info;
+  width: 340px;
+  height: 216px;
+  margin-left: auto;
+}
+.statsLoader {
+  grid-area: stats;
+  width: 500px;
+  height: 390px;
+  margin: auto;
+}
+.capture-rateLoader {
+  grid-area: capture;
+  width: 230px;
+  height: 230px;
+  margin: auto;
+}
+.evolutionLoader {
+  grid-area: evolve;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}

@@ -12,6 +12,7 @@ import DonutChart from '../components/DonutChart';
 import EvolutionCard from '../components/EvolutionCard';
 
 import '../styles/Pokemon.scss';
+import LoaderPokemon from '../loaders/LoaderPokemon';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -65,7 +66,7 @@ const Pokemon = () => {
     ],
   };
 
-  if (pokemon) {
+  if (pokemon[slug]?.evolutions) {
     return (
       <>
         <Header content={content} />
@@ -197,7 +198,7 @@ const Pokemon = () => {
       </>
     );
   } else {
-    return <p>Cargando...</p>;
+    return <LoaderPokemon />;
   }
 };
 

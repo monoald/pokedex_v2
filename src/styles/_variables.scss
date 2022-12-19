@@ -79,3 +79,14 @@ html {
 body {
   background-color: $primary;
 }
+
+@keyframes blink {
+  50% {
+    filter: opacity(0.6)
+  }
+}
+@-webkit-keyframes blink {
+  50% {
+    filter: opacity(0.6)
+  }
+}

@@ -10,6 +10,7 @@ import Header from '../components/Header';
 import Menu from '../components/Menu';
 import PokemonCard from '../components/PokemonCard';
 import PokemonCardList from '../containers/PokemonCardList';
+import LoaderPokedex from '../loaders/LoaderPokedex';
 
 const Pokedex = () => {
   const [toggleFilter, setToggleFilter] = useState<boolean>(false);
@@ -48,23 +49,27 @@ const Pokedex = () => {
     getPokedex(currentPokedex);
   }, []);
 
-  return (
-    <>
-      <Header content={content} />
-      <main>
-        {toggleMenu && <Menu menuToggle={menuEvent} />}
-        <PokemonCardList>
-          {pokedex[currentPokedex]?.poke?.map((poke, index) => (
-            <PokemonCard
-              key={poke}
-              pokemon={pokemon[poke]}
-              entryNumber={index}
-            />
-          ))}
-        </PokemonCardList>
-      </main>
-    </>
-  );
+  if (pokedex[currentPokedex]) {
+    return (
+      <>
+        <Header content={content} />
+        <main>
+          {toggleMenu && <Menu menuToggle={menuEvent} />}
+          <PokemonCardList>
+            {pokedex[currentPokedex]?.poke?.map((poke, index) => (
+              <PokemonCard
+                key={poke}
+                pokemon={pokemon[poke]}
+                entryNumber={index}
+              />
+            ))}
+          </PokemonCardList>
+        </main>
+      </>
+    );
+  } else {
+    return <LoaderPokedex />;
+  }
 };
 
 export default Pokedex;
