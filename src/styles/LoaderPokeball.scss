@@ -1,0 +1,11 @@
+@use 'variables' as *;
+
+.LoaderPokeball {
+  width: 70px;
+  height: 70px;
+  margin: $space-unit auto $space-unit-x3;
+  background-image: url('../assets/images/pokeball-loader.webp');
+  background-size: cover;
+
+  @include blink-animation;
+}

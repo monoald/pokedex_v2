@@ -64,8 +64,14 @@ const useInitialState = (): Context => {
     });
   };
 
-  const nextPage = async (payload: string) => {
-    const pokedex = state.pokedex[payload];
+  interface NextPagePayload {
+    pokedexName: string;
+    setIntersecting: React.Dispatch<React.SetStateAction<boolean>>;
+  }
+
+  const nextPage = async (payload: NextPagePayload) => {
+    const { pokedexName, setIntersecting } = payload;
+    const pokedex = state.pokedex[pokedexName];
 
     const { newPokemons, poke } = await getNewPage(pokedex, state);
 
@@ -78,7 +84,7 @@ const useInitialState = (): Context => {
       ...state,
       pokedex: {
         ...state.pokedex,
-        [payload]: {
+        [payload.pokedexName]: {
           ...newData,
         },
       },
@@ -87,6 +93,7 @@ const useInitialState = (): Context => {
         ...newPokemons,
       },
     });
+    setIntersecting(false);
   };
 
   const getPoke = async (payload: string | Evolutions[]) => {

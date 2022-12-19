@@ -15,11 +15,16 @@ interface Pokedex {
   [key: string]: PokedexModel;
 }
 
+interface NextPagePayload {
+  pokedexName: string;
+  setIntersecting: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 export interface Context {
   state: State;
   getPokedex: (payload: string) => void;
   getPokemonSpecifications: (payload: string) => void;
   setPokedex: (payload: string) => void;
-  nextPage: (payload: string) => void;
+  nextPage: (payload: NextPagePayload) => void;
   getPoke: (payload: string | Evolutions[]) => void;
 }

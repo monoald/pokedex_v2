@@ -10,16 +10,7 @@
   text-decoration: none;
   list-style: none;
   border-radius: 20px;
-  filter: opacity(1);
-  -moz-transition:all 0.5s ease-in-out;
-  -webkit-transition:all 0.5s ease-in-out;
-  -o-transition:all 0.5s ease-in-out;
-  -ms-transition:all 0.5s ease-in-out;
-  transition:all 0.5s ease-in-out;
-  -moz-animation:blink normal 1.5s infinite ease-in-out;
-  -webkit-animation:blink normal 1.5s infinite ease-in-out;
-  -ms-animation:blink normal 1.5s infinite ease-in-out;
-  animation:blink normal 1.5s infinite ease-in-out;
 
   @include lightNeumorphism;
+  @include blink-animation;
 }

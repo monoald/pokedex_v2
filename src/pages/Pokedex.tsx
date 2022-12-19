@@ -5,16 +5,25 @@ import { HeaderContent } from '../types';
 import AppContext from '../context/AppContext';
 
 import useToggle from '../hooks/useToggle';
+import useInfiniteScroll from '../hooks/usInfiniteScroll';
 
+import LoaderPokedex from '../loaders/LoaderPokedex';
 import Header from '../components/Header';
 import Menu from '../components/Menu';
 import PokemonCard from '../components/PokemonCard';
 import PokemonCardList from '../containers/PokemonCardList';
-import LoaderPokedex from '../loaders/LoaderPokedex';
+import LoaderPokeball from '../loaders/LoaderPokeball';
 
 const Pokedex = () => {
   const [toggleFilter, setToggleFilter] = useState<boolean>(false);
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
+
+  const [reference, isIntersected, setIsIntersected] = useInfiniteScroll(() => {
+    nextPage({
+      pokedexName: currentPokedex,
+      setIntersecting: setIsIntersected,
+    });
+  });
 
   const filterEvent = () => {
     useToggle(setToggleFilter, toggleFilter);
@@ -43,6 +52,7 @@ const Pokedex = () => {
   const {
     getPokedex,
     state: { pokedex, pokemon, currentPokedex },
+    nextPage,
   } = useContext(AppContext);
 
   useEffect(() => {
@@ -64,6 +74,8 @@ const Pokedex = () => {
               />
             ))}
           </PokemonCardList>
+          {isIntersected && <LoaderPokeball />}
+          <div id='sentinel' ref={reference} style={{ height: 100 }}></div>
         </main>
       </>
     );
