@@ -9,25 +9,25 @@
 
 .graphicLoader {
   grid-area: photo;
-  width: 380px;
-  height: 420px;
+  width: 100%;
+  height: 390px;
 }
 .descriptionLoader {
   grid-area: description;
-  width: 340px;
+  width: 90%;
   height: 132px;
-  margin-left: auto;
+  margin: auto;
 }
 .infoLoader {
   grid-area: info;
-  width: 340px;
+  width: 90%;
   height: 216px;
-  margin-left: auto;
+  margin: auto;
 }
 .statsLoader {
   grid-area: stats;
-  width: 500px;
-  height: 390px;
+  width: 90%;
+  height: 596px;
   margin: auto;
 }
 .capture-rateLoader {
@@ -39,6 +39,37 @@
 .evolutionLoader {
   grid-area: evolve;
   width: 100%;
+  height: 800px;
   display: flex;
   flex-wrap: wrap;
+}
+
+@media (min-width: 860px) {
+  .graphicLoader {
+    width: 380px;
+    height: 420px;
+  }
+  .descriptionLoader {
+    width: 340px;
+    height: 132px;
+    margin: 0;
+    margin-left: auto;
+  }
+  .infoLoader {
+    width: 340px;
+    height: 216px;
+    margin: 0;
+    margin-left: auto;
+  }
+  .statsLoader {
+    width: 500px;
+    height: 390px;
+  }
+  .capture-rateLoader {
+    width: 230px;
+    height: 230px;
+  }
+  .evolutionLoader{
+    height: fit-content;
+  }
 }

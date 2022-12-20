@@ -3,22 +3,32 @@
 
 .Pokemon {
   max-width: 860px;
-  padding: $space-unit-x4 0;
+  // padding: $space-unit-x4 0;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 60% 40%;
-  grid-template-rows: 170px 250px 480px 300px;
+  // grid-template-columns: 60% 40%;
+  // grid-template-rows: 170px 250px 480px 300px;
+  // grid-template-areas:
+  // "photo description"
+  // "photo info"
+  // "stats capture"
+  // "evolve evolve";
+  grid-template-columns: 1fr;
+  grid-template-rows: 390px fit-content fit-content 600px 232px 800px;
   grid-template-areas:
-  "photo description"
-  "photo info"
-  "stats capture"
-  "evolve evolve";
+  "photo"
+  "description"
+  "info"
+  "stats"
+  "capture"
+  "evolve";
+  row-gap: $space-unit-x3;
 
   .graphic-card {
     grid-area: photo;
     position: relative;
-    width: 380px;
-    height: 420px;
+    // width: 380px;
+    // height: 420px;
     padding: $space-unit-x2 $space-unit-x3;
     display: flex;
     flex-direction: column;
@@ -59,11 +69,12 @@
 
   .description-card {
     grid-area: description;
+    width: 90%;
     height: fit-content;
-    margin-left: auto;
+    margin: auto;
   }
   .description-card, .info-card, .stats-card, .capture-rate-card {
-    width: 340px;
+    // width: 340px;
     padding: $space-unit-x2 $space-unit-x4;
     text-align: center;
 
@@ -81,7 +92,8 @@
 
   .info-card {
     grid-area: info;
-    margin-left: auto;
+    width: 90%;
+    margin: auto;
     height: fit-content;
     .content {
       .info-section {
@@ -160,8 +172,9 @@
 
   .stats-card {
     grid-area: stats;
-    width: 500px;
-    height: 390px;
+    // width: 500px;
+    // height: 390px;
+    width: 90%;
     margin: auto;
 
     .content {
@@ -213,5 +226,44 @@
 
   .value {
     @include font-s;
+  }
+}
+
+@media (min-width: 860px) {
+  .Pokemon {
+    padding: $space-unit-x4 0;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 170px 250px 480px 300px;
+    grid-template-areas:
+    "photo description"
+    "photo info"
+    "stats capture"
+    "evolve evolve";
+    row-gap: 0;
+
+    .graphic-card {
+      width: 380px;
+      height: 420px;
+    }
+    .description-card {
+      margin: 0;
+      margin-left: auto;
+    }
+
+    .info-card {
+      margin: 0;
+      margin-left: auto;
+    }
+
+    .description-card, .info-card, .stats-card, .capture-rate-card {
+      width: 340px;
+    }
+    .stats-card {
+      width: 500px;
+      height: 390px;
+    }
+    .capture-rate-card {
+      width: 230px;
+    }
   }
 }
