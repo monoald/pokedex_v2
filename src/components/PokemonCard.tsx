@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { PokemonCardContent } from '../types';
 
 import '../styles/PokemonCard.scss';
+import removeLoadingImage from '../utils/removeLoadingImage';
 
 const PokemonCard = ({ pokemon, entryNumber }: PokemonCardContent) => {
   return (
@@ -25,7 +26,8 @@ const PokemonCard = ({ pokemon, entryNumber }: PokemonCardContent) => {
             <img
               src={pokemon.image}
               alt={`Photo of ${pokemon.name}`}
-              className='image'
+              className='loading'
+              onLoad={removeLoadingImage}
             />
           </figure>
         </div>

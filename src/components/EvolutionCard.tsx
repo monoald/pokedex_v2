@@ -5,6 +5,7 @@ import AppContext from '../context/AppContext';
 import { Evolutions } from '../models/Pokemon';
 
 import '../styles/EvolutionCard.scss';
+import removeLoadingImage from '../utils/removeLoadingImage';
 
 interface Props {
   evolution: Evolutions;
@@ -38,7 +39,8 @@ const EvolutionCard = ({ evolution }: Props) => {
             <img
               src={pokemon[evolution.name]?.image}
               alt={`Photo of ${pokemon[evolution.name]?.name}`}
-              className='image'
+              className='loading'
+              onLoad={removeLoadingImage}
             />
           </figure>
         </div>

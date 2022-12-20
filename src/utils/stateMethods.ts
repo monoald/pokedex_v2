@@ -11,6 +11,7 @@ import {
 import { Ability } from '../models/Pokemon';
 
 import getData from '../utils/getData';
+import pad from './pad';
 
 export const getNewPage = async (pokedex: PokedexModel, state: State) => {
   const pokemons = pokedex.pokemon_entries.splice(0, 15);
@@ -47,6 +48,12 @@ export const getPokemon = async (payload: string) => {
     stats.push(setStats(stat));
   }
 
+  let nationalPosition = species.pokedex_numbers.find(
+    (number) => number.pokedex.name == 'national',
+  );
+  nationalPosition = pad(nationalPosition.entry_number);
+  const image = `https://www.serebii.net/pokemongo/pokemon/${nationalPosition}.png`;
+
   const normalizedSpecies: PokemonSpecies = {
     evolution_chain: species.evolution_chain,
     description: species.flavor_text_entries.find(
@@ -62,7 +69,7 @@ export const getPokemon = async (payload: string) => {
   const normalizedPokemon: PokemonModel = {
     abilities: pokemon.abilities,
     height: pokemon.height,
-    image: pokemon.sprites.other['official-artwork'].front_default,
+    image: image,
     name: pokemon.name,
     species: normalizedSpecies,
     stats: stats,

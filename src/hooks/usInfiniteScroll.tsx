@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 const usInfiniteScroll = (
   callback: () => void,
 ): [
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   React.MutableRefObject<any>,
   boolean,
   React.Dispatch<React.SetStateAction<boolean>>,
