@@ -1,0 +1,145 @@
+@use 'variables' as *;
+
+.filter {
+  width: 100%;
+  min-height: 70px;
+  height: fit-content;
+  margin-bottom: $space-unit;
+
+  .filter__title {
+    width: fit-content;
+    @include font-l;
+  }
+
+  .filter__list {
+    padding: $space-unit-x2 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-unit-x2;
+    // overflow-x: scroll;
+    list-style: none;
+
+    .filter__item {
+      width: fit-content;
+      height: fit-content;
+      border: none;
+      white-space: nowrap;
+      text-overflow: clip;
+
+      cursor: pointer;
+
+      @include font-s;
+      @include lightNeumorphism;
+      border-radius: 4px;
+    }
+
+    .region-filter {
+      padding: 6px $space-unit;
+      background-color: $silver;
+    }
+
+    .type-filter {
+      height: 30px;
+      padding-right: $space-unit;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: $primary;
+      text-transform: capitalize;
+      font-weight: 350;
+      .icon {
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        background-size: cover;
+      }
+    }
+
+    .filter--normal {
+      background-color: $normal;
+    }
+    .filter--fighting {
+      background-color: $fighting;
+    }
+    .filter--flying {
+      background-color: $flying;
+    }
+    .filter--poison {
+      background-color: $poison;
+    }
+    .filter--ground {
+      background-color: $ground;
+    }
+    .filter--rock {
+      background-color: $rock;
+    }
+    .filter--bug {
+      background-color: $bug;
+    }
+    .filter--ghost {
+      background-color: $ghost;
+    }
+    .filter--steel {
+      background-color: $steel;
+    }
+    .filter--fire {
+      background-color: $fire;
+    }
+    .filter--water {
+      background-color: $water;
+    }
+    .filter--grass {
+      background-color: $grass;
+    }
+    .filter--electric {
+      background-color: $electric;
+      color: $secondary;
+    }
+    .filter--psychic {
+      background-color: $psychic;
+    }
+    .filter--ice {
+      background-color: $ice;
+    }
+    .filter--dragon {
+      background-color: $dragon;
+    }
+    .filter--dark {
+      background-color: $dark;
+    }
+    .filter--fairy {
+      background-color: $fairy;
+    }
+  }
+}
+
+.move {
+  animation: move 0.5s linear 1;
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  100% {
+    transform: translateX(var(--dx)) translateY(var(--dy));
+  }
+}
+
+// #a, #b, #c {
+//   display: grid;
+//   grid-template-columns: 1fr;
+//   grid-template-rows: 1fr 1fr;
+//   grid-template-areas:
+//   "a"
+//   "b";
+
+//   .a {
+//     grid-area: a;
+//   }
+
+//   .b {
+//     grid-area: b;
+//     display: flex;
+//   }
+// }
