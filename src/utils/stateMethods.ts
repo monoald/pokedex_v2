@@ -24,7 +24,9 @@ export const getNewPage = async (pokedex: PokedexModel, state: State) => {
     poke.push(pokemon.pokemon_species.name);
 
     if (!state.pokemon[pokemonName]) {
-      const data = await getPokemon(pokemonName);
+      const destructuredURL = pokemon.pokemon_species.url.split('/');
+      const pokemonId = destructuredURL[destructuredURL.length - 2];
+      const data = await getPokemon(pokemonId);
 
       newPokemons[pokemonName] = data;
     }

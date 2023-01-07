@@ -9,6 +9,24 @@ $defense: #004E98;
 $special-attack: #C589E8;
 $special-defense: #2589BD;
 $capture-rate: #09BC8A;
+$normal: #a0a29f;
+$fighting: #d3425f;
+$flying: #a1bbec;
+$poison: #b763cf;
+$ground: #da7c4d;
+$rock: #c9bb8a;
+$bug: #92BC2C;
+$ghost: #5F6DBC;
+$steel: #5695A3;
+$fire: #FBA54C;
+$water: #539DDF;
+$grass: #5FBD58;
+$electric: #F2D94E;
+$psychic: #FA8581;
+$ice: #75D0C1;
+$dragon: #0C69C8;
+$dark: #595761;
+$fairy: #EE90E6;
 $space-unit: 10px;
 $space-unit-x2: $space-unit * 2;
 $space-unit-x3: $space-unit * 3;
@@ -18,7 +36,7 @@ $space-unit-x6: $space-unit * 6;
 $break-point: 930px;
 
 @mixin font-s() {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 300;
 }
 @mixin font-m() {

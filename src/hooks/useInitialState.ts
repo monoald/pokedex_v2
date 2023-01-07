@@ -126,6 +126,13 @@ const useInitialState = (): Context => {
     }
   };
 
+  const setCurrentPokedex = (payload: string): void => {
+    setState({
+      ...state,
+      currentPokedex: payload,
+    });
+  };
+
   return {
     state,
     getPokedex,
@@ -133,6 +140,7 @@ const useInitialState = (): Context => {
     setPokedex,
     nextPage,
     getPoke,
+    setCurrentPokedex,
   };
 };
 

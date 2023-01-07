@@ -27,4 +27,5 @@ export interface Context {
   setPokedex: (payload: string) => void;
   nextPage: (payload: NextPagePayload) => void;
   getPoke: (payload: string | Evolutions[]) => void;
+  setCurrentPokedex: (payload: string) => void;
 }
