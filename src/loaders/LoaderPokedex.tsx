@@ -7,11 +7,12 @@ const LoaderPokedex = () => {
   const elements = Array.from(Array(12).keys());
   return (
     <>
-      <HeaderLoader />
       <PokemonCardList>
-        {elements.map((num) => (
-          <PokemonCardLoader key={num} />
-        ))}
+        <>
+          {elements.map((num) => (
+            <PokemonCardLoader key={num} />
+          ))}
+        </>
       </PokemonCardList>
     </>
   );
