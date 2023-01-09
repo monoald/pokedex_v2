@@ -1,5 +1,4 @@
 import React from 'react';
-import HeaderLoader from './LoaderHeader';
 import PokemonCardList from '../containers/PokemonCardList';
 import PokemonCardLoader from './LoaderPokemonCard';
 
