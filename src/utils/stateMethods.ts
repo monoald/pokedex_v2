@@ -1,5 +1,5 @@
-import { State } from '../models/Context';
-
+import { Item, State } from '../models/Context';
+import { ItemModel } from '../models/Items';
 import { PokedexModel } from '../models/Pokedex';
 import {
   AbilityComplete,
@@ -108,7 +108,6 @@ export const getAbilities = async (
 
 export const getEvolutionChain = async (
   pokemon: PokemonModel,
-  state: State,
 ): Promise<Evolutions[]> => {
   const data = await fetch(pokemon.species.evolution_chain.url).then((res) =>
     res.json(),
@@ -168,6 +167,21 @@ export const addPokedex = async (
   });
 };
 
+export const getItems = async (payload): Promise<Item> => {
+  const newItems = {} as Item;
+
+  for (const item of payload) {
+    newItems[item.name] = await getItemByName(item.name);
+  }
+
+  return newItems;
+};
+
+export const getItemByName = async (itemId: string): Promise<ItemModel> => {
+  const data = await getData(`item/${itemId}/`);
+  return normalizeItem(data);
+};
+
 const setStats = (stat): Stat => {
   const data = {
     base_stat: stat.base_stat,
@@ -199,4 +213,16 @@ const setStats = (stat): Stat => {
       break;
   }
   return data;
+};
+
+const normalizeItem = (data): ItemModel => {
+  const item = {} as ItemModel;
+  item['category'] = data.category.name;
+  item['cost'] = data.cost || 'can not buy';
+  item['description'] = data.effect_entries.find(
+    (entry) => entry.language.name === 'en',
+  ).short_effect;
+  item['name'] = data.name;
+  item['image'] = data.sprites.default;
+  return item;
 };

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Context, State } from '../models/Context';
+import { Context, NextPagePayload, State } from '../models/Context';
 import { Evolutions, PokemonModel } from '../models/Pokemon';
 
 import {
@@ -9,12 +9,17 @@ import {
   getNewPage,
   addPokedex,
   getPokemon,
+  getItemByName,
+  getItems,
 } from '../utils/stateMethods';
+import getData from '../utils/getData';
 
 const initialState = {
   pokedex: {},
   pokemon: {},
   currentPokedex: 'kanto',
+  items: {},
+  currentItemPage: {},
 } as State;
 
 const useInitialState = (): Context => {
@@ -34,7 +39,7 @@ const useInitialState = (): Context => {
 
     if (!pokemon.completeSpecifications) {
       const abilitiesInfo = await getAbilities(pokemon);
-      const evolutions = await getEvolutionChain(pokemon, state);
+      const evolutions = await getEvolutionChain(pokemon);
 
       const newData: PokemonModel = {
         ...pokemon,
@@ -64,12 +69,7 @@ const useInitialState = (): Context => {
     });
   };
 
-  interface NextPagePayload {
-    pokedexName: string;
-    setIntersecting: React.Dispatch<React.SetStateAction<boolean>>;
-  }
-
-  const nextPage = async (payload: NextPagePayload) => {
+  const nextPagePokedex = async (payload: NextPagePayload) => {
     const { pokedexName, setIntersecting } = payload;
     const pokedex = state.pokedex[pokedexName];
 
@@ -133,14 +133,54 @@ const useInitialState = (): Context => {
     });
   };
 
+  const getItemsFirstPage = async () => {
+    const data = await getData('item');
+    const newItems = await getItems(data.results);
+
+    setState({
+      ...state,
+      items: { ...state.items, ...newItems },
+      currentItemPage: data,
+    });
+  };
+
+  const getItem = async (payload: string) => {
+    const item = await getItemByName(payload);
+
+    setState({
+      ...state,
+      items: { ...state.items, [payload]: item },
+    });
+  };
+
+  const nextPageItem = async (
+    payload: React.Dispatch<React.SetStateAction<boolean>>,
+  ) => {
+    const data = await fetch(state.currentItemPage.next).then((res) =>
+      res.json(),
+    );
+    const newItems = await getItems(data.results);
+
+    setState({
+      ...state,
+      items: { ...state.items, ...newItems },
+      currentItemPage: data,
+    });
+
+    payload(false);
+  };
+
   return {
     state,
     getPokedex,
     getPokemonSpecifications,
     setPokedex,
-    nextPage,
+    nextPagePokedex,
     getPoke,
     setCurrentPokedex,
+    getItemsFirstPage,
+    getItem,
+    nextPageItem,
   };
 };
 

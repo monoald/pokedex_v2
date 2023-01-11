@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
 
 import { HeaderContent } from '../types';
+import { AllElements } from '../models/Filters';
 
 import AppContext from '../context/AppContext';
 
 import useToggle from '../hooks/useToggle';
-import useInfiniteScroll from '../hooks/usInfiniteScroll';
+import useInfiniteScroll from '../hooks/useInfiniteScroll';
 
 import LoaderPokedex from '../loaders/LoaderPokedex';
 import Header from '../components/Header';
@@ -17,7 +18,6 @@ import FilterContainer from '../containers/FilterContainer';
 
 import '../styles/Filters.scss';
 import filterElements from '../data/filterElements';
-import { AllElements } from '../models/Filters';
 
 const Pokedex = () => {
   const [toggleFilter, setToggleFilter] = useState<boolean>(false);
@@ -32,7 +32,7 @@ const Pokedex = () => {
   const {
     getPokedex,
     state: { pokedex, pokemon, currentPokedex },
-    nextPage,
+    nextPagePokedex,
   } = useContext(AppContext);
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const Pokedex = () => {
   }, [currentPokedex]);
 
   const [reference, isIntersected, setIsIntersected] = useInfiniteScroll(() => {
-    nextPage({
+    nextPagePokedex({
       pokedexName: currentPokedex,
       setIntersecting: setIsIntersected,
     });

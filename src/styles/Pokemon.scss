@@ -3,16 +3,8 @@
 
 .Pokemon {
   max-width: 860px;
-  // padding: $space-unit-x4 0;
   margin: 0 auto;
   display: grid;
-  // grid-template-columns: 60% 40%;
-  // grid-template-rows: 170px 250px 480px 300px;
-  // grid-template-areas:
-  // "photo description"
-  // "photo info"
-  // "stats capture"
-  // "evolve evolve";
   grid-template-columns: 1fr;
   grid-template-rows: 390px fit-content fit-content 600px 232px 800px;
   grid-template-areas:
@@ -27,8 +19,6 @@
   .graphic-card {
     grid-area: photo;
     position: relative;
-    // width: 380px;
-    // height: 420px;
     padding: $space-unit-x2 $space-unit-x3;
     display: flex;
     flex-direction: column;
@@ -74,7 +64,6 @@
     margin: auto;
   }
   .description-card, .info-card, .stats-card, .capture-rate-card {
-    // width: 340px;
     padding: $space-unit-x2 $space-unit-x4;
     text-align: center;
 
@@ -172,8 +161,6 @@
 
   .stats-card {
     grid-area: stats;
-    // width: 500px;
-    // height: 390px;
     width: 90%;
     margin: auto;
 
